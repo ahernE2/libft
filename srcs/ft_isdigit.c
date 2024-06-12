@@ -6,9 +6,11 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:58:49 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/11 22:37:35 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/12 22:16:04 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int param)
 {

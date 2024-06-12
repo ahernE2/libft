@@ -6,19 +6,19 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:31:24 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/12 20:00:00 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/12 22:15:11 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(char *str, int c)
 {
-	while (*s)
+	while (*str)
 	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
+		if (*str == (char) c)
+			return ((char *) str);
+		str++;
 	}
-	if (*s == (char) c)
-		return ((char *) s);
+	if (*str == (char) c)
+		return ((char *) str);
 	return (NULL);
 }
