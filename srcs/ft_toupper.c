@@ -6,11 +6,11 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:42:38 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/11 22:07:59 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:59:18 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_islower(char letter);
+#include "libft.h"
 
 char	*ft_toupper(char *str)
 {
