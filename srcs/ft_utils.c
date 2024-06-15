@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 static int	ft_isupper(char letter)
 {
 	return (letter >= 'a' && letter <= 'z');
