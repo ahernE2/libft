@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_memcmp(void *s1, void *s2, size_t n)
 {
 	unsigned char	*arr1;

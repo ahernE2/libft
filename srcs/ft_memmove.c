@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*memove(void *dest, void *src, size_t n)
 {
 	unsigned char	d;
