@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strnstr(char *str, char *to_find, size_t len)
 {
 	size_t	index_str;
