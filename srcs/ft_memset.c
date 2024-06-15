@@ -6,15 +6,15 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:53:44 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/12 22:20:12 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/15 20:43:24 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memset(void *s, int c, int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int				index;
+	size_t			index;
 	unsigned char	*util;
 
 	util = (unsigned char *) s;
