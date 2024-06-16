@@ -1,6 +1,11 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+#import <unistd.h>
+#import <stdlib.h>
+#import <fcntl.h>
+#import <stddef.h>
+
 // Declarations from ft_utils.c
 static	int(char letter);
 static	int(char letter);
@@ -24,6 +29,8 @@ int	ft_atoi(char *str);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 // Declarations from ft_strnstr.c
 char	*ft_strnstr(char *str, char *to_find, size_t len);
+// Declarations from ft_calloc.c
+void	*calloc(size_t nmemb, size_t size);
 // Declarations from ft_isalnum.c
 int	ft_isalnum(char *str);
 // Declarations from ft_tolower.c
