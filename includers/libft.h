@@ -7,8 +7,7 @@
 #import <stddef.h>
 
 // Declarations from ft_utils.c
-static	int(char letter);
-static	int(char letter);
+
 // Declarations from ft_memcpy.c
 void	*ft_memcpy(void *dest, void *src, size_t n);
 // Declarations from ft_strncmp.c
@@ -31,6 +30,8 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size);
 char	*ft_strnstr(char *str, char *to_find, size_t len);
 // Declarations from ft_calloc.c
 void	*calloc(size_t nmemb, size_t size);
+// Declarations from ft_strdup.c
+char	*ft_strdup(char *str);
 // Declarations from ft_isalnum.c
 int	ft_isalnum(char *str);
 // Declarations from ft_tolower.c
