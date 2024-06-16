@@ -6,16 +6,14 @@
 #import <fcntl.h>
 #import <stddef.h>
 
-// Declarations from ft_utils.c
-
-// Declarations from ft_memcpy.c
-void	*ft_memcpy(void *dest, void *src, size_t n);
 // Declarations from ft_strncmp.c
 int	ft_strncmp(char *s1, char *s2, size_t n);
-// Declarations from ft_memset.c
-void	*ft_memset(void *s, int c, size_t n);
 // Declarations from ft_strlen.c
 size_t	ft_strlen(char *str);
+// Declarations from ft_memset.c
+void	*ft_memset(void *s, int c, size_t n);
+// Declarations from ft_strjoin.c
+char	*str_join(char *s1, char *s2);
 // Declarations from ft_memcmp.c
 int	ft_memcmp(void *s1, void *s2, size_t n);
 // Declarations from ft_memmove.c
@@ -28,16 +26,20 @@ int	ft_atoi(char *str);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 // Declarations from ft_strnstr.c
 char	*ft_strnstr(char *str, char *to_find, size_t len);
-// Declarations from ft_calloc.c
-void	*calloc(size_t nmemb, size_t size);
-// Declarations from ft_strdup.c
-char	*ft_strdup(char *str);
-// Declarations from ft_isalnum.c
-int	ft_isalnum(char *str);
-// Declarations from ft_tolower.c
-char	*ft_tolower(char *str);
+// Declarations from ft_memcpy.c
+void	*ft_memcpy(void *dest, void *src, size_t n);
 // Declarations from ft_toupper.c
 char	*ft_toupper(char *str);
+// Declarations from ft_tolower.c
+char	*ft_tolower(char *str);
+// Declarations from ft_substr.c
+char	*ft_substr(char *s, size_t start, size_t len);
+// Declarations from ft_strdup.c
+char	*ft_strdup(char *str);
+// Declarations from ft_calloc.c
+void	*ft_calloc(size_t nmemb, size_t size);
+// Declarations from ft_isalnum.c
+int	ft_isalnum(char *str);
 // Declarations from ft_isalpha.c
 int	ft_isalpha(int param);
 // Declarations from ft_isascii.c
