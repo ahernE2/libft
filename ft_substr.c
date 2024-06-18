@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 18:52:33 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/16 22:13:46 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/18 23:20:58 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ char	*ft_substr(char *s, size_t start, size_t len)
 		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
-	d = (char *)malloc((len + 1) * sizeof(char));
-	if (!d)
+	substr = (char *)malloc((len + 1) * sizeof(char));
+	if (!substr)
 		return (NULL);
 	ft_strnlcpy(sub_str, (s + start), len);
 	substr[len] = '\0';
-	return (d);
+	return (sub_str);
 }

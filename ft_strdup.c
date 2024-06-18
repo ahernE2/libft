@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 02:41:28 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/16 22:18:26 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/18 23:46:53 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strdup(char *str)
 	size_t	size;
 	char	*dup;
 
-	size = ft_str_len(str) + 1;
+	size = ft_strlen(str) + 1;
 	dup = (char *)malloc(size * sizeof(char));
 	if (!dup)
 		return (NULL);
