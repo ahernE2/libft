@@ -6,15 +6,15 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 22:07:46 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/19 01:19:35 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/20 00:08:11 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strtrim(char *s1, char *set)
 {
-	char	*trim;
-	char	*start_trim;
 	size_t	set_len;
+	char	*trim;
+	size_t	index_trim;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -22,16 +22,16 @@ char	*ft_strtrim(char *s1, char *set)
 	trim = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!trim)
 		return (NULL);
-	start_trim = trim;
+	index_trim = 0;
 	while (*s1)
 	{
 		if (!ft_strchr(set, *s1))
 		{
-			*trim = *s1;
-			trim++;
+			trim[index_trim] = *s1;
+			index_trim++;
 		}
 		s1++;
 	}
-	*trim = '\0';
-	return (start_trim);
+	trim[index_trim] = '\0';
+	return (trim);
 }
