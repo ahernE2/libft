@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:04:27 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/12 22:19:30 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:53:16 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(char *str, int c)
 {
-	char	last_ocurrence;
+	char	*last_ocurrence;
 
 	last_ocurrence = NULL;
 	while (*str)
@@ -25,5 +25,5 @@ char	*ft_strrchr(char *str, int c)
 	}
 	if (*str == (char) c)
 		return ((char *) str);
-	return ((char) last_ocurrence);
+	return (last_ocurrence);
 }
