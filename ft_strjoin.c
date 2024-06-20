@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 22:46:30 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/19 22:41:42 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/20 03:50:16 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*str_join(char *s1, char *s2)
 	char	*arr;
 
 	t_size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	arr = (char *)ft_malloc(t_size, sizeof(char));
+	arr = (char *)ft_calloc(t_size, sizeof(char));
 	if (!arr)
 		return (NULL);
 	ft_strlcpy(arr, s1, t_size);

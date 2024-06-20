@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_isprint(int param)
+int	ft_isprint(int c)
 {
-	return (param >= 32 && param <= 126);
+	return (c >= 32 && c <= 126);
 }

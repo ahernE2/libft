@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:29:33 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/16 01:02:32 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/20 03:44:13 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 int	ft_atoi(char *str)
 {
-	int	result;
-	int	sign;
-	int	i;
+	int		result;
+	int		sign;
+	size_t	index;
 
 	result = 0;
 	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	index = 0;
+	while (str[index] == ' ' || (str[index] >= '\t' && str[index] <= '\r'))
+		index++;
+	if (str[index] == '-' || str[index] == '+')
 	{
-		if (str[i] == '-')
+		if (str[index] == '-')
 			sign *= -1;
-		i++;
+		index++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[index] >= '0' && str[index] <= '9')
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		result = result * 10 + str[index] - '0';
+		index++;
 	}
 	return (sign * result);
 }

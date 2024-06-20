@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:53:44 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/15 20:43:24 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/20 03:43:39 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t			index;
 	unsigned char	*util;
+	size_t			index;
 
 	util = (unsigned char *) s;
 	index = 0;
@@ -24,4 +24,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		util[index] = c;
 		index++;
 	}
+	return (util);
 }

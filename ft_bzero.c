@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 22:23:23 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/17 14:58:25 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/20 03:20:31 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	index = 0;
 	while (index < n)
 	{
-		util[index] = NULL;
+		util[index] = 0;
 		index++;
 	}
 }
