@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 19:27:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/21 00:51:48 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/21 01:01:36 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_itoa(int nb)
 	char	*str;
 	size_t	index;
 
-	str = (char *)calloc(ft_getdigits(nb) + 1, sizeof(char));
+	str = (char *)ft_calloc(ft_getdigits(nb) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	index = 0;
