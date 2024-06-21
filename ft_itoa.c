@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 19:27:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/21 01:01:36 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/21 19:07:05 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,28 @@ static size_t	ft_getdigits(int nb)
 	return (len);
 }
 
-static char	*ft_construct(char *str, int nb, size_t index)
-{
-	int		aux_nb;
-	int		mult;
-
-	while (nb > 9)
-	{
-		aux_nb = nb;
-		mult = 1;
-		while (aux_nb > 9)
-		{
-			aux_nb /= 10;
-			mult *= 10;
-		}
-		str[index] = (aux_nb % 10) + '0';
-		index++;
-		nb -= aux_nb * mult;
-	}
-	if (nb >= 0)
-		str[index] = (nb % 10) + '0';
-	return (str);
-}
-
 char	*ft_itoa(int nb)
 {
+	long	nb_long;
+	size_t	digits;
 	char	*str;
-	size_t	index;
 
-	str = (char *)ft_calloc(ft_getdigits(nb) + 1, sizeof(char));
+	nb_long = nb;
+	digits = ft_getdigits(nb_long);
+	if (nb_long < 0)
+	{
+		nb_long *= -1;
+		digits++;
+	}
+	str = (char *)ft_calloc(digits + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	index = 0;
-	if (nb < 0)
+	while (digits--)
 	{
-		str[index] = '-';
-		nb *= -1;
-		index++;
+		str[digits] = nb_long % 10 + '0';
+		nb_long /= 10;
 	}
-	ft_construct(str, nb, index);
+	if (nb < 0)
+		str[0] = '-';
 	return (str);
 }
