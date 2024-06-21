@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 static size_t	ft_getdigits(int nb)
 {
 	size_t	len;
