@@ -6,13 +6,13 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 22:46:30 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/20 03:50:16 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/23 17:05:46 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*str_join(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	t_size;
 	char	*arr;
