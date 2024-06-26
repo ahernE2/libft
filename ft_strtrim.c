@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 22:07:46 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/20 03:32:57 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:03:11 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char	*ft_strtrim(char *s1, char *set)
 {
+	size_t	start;
+	size_t	end;
+	size_t	size_trim;
 	char	*trim;
-	size_t	index_trim;
 
 	if (!s1 || !set)
 		return (NULL);
-	trim = (char *)ft_calloc((ft_strlen(s1) + 1), sizeof(char));
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end -1]))
+		end--;
+	size_trim = end - start + 1;
+	trim = (char *)ft_calloc(size_trim, sizeof(char));
 	if (!trim)
 		return (NULL);
-	index_trim = 0;
-	while (*s1)
-	{
-		if (!ft_strchr(set, *s1))
-		{
-			trim[index_trim] = *s1;
-			index_trim++;
-		}
-		s1++;
-	}
+	ft_strlcpy(trim, s1 + start, size_trim);
 	return (trim);
 }

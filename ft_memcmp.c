@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 21:19:15 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/15 23:18:36 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/26 09:00:58 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_memcmp(void *s1, void *s2, size_t n)
 			return (-1);
 		else if (arr1[index] > arr2[index])
 			return (1);
+		index++;
 	}
 	return (0);
 }

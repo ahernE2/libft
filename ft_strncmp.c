@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:22:53 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/20 03:46:20 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/26 09:23:58 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 		return (0);
 	while (s1[index] && s2[index] && s1[index] == s2[index] && index < n - 1)
 		index++;
-	return (s1[index] - s2[index]);
+	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
 }
