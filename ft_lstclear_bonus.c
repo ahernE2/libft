@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:30:21 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/24 20:00:59 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/29 22:28:16 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	ft_lstclear(&(*lst)-> next, del);
 	del((*lst)-> content);
 	free(*lst);
-	lst = NULL;
+	*lst = NULL;
 }
