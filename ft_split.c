@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:41:57 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/29 21:51:43 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/06/30 18:25:58 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ char	**ft_split(char *s, char c)
 
 	len_split = ft_counter(s, c);
 	splited = (char **)ft_calloc((len_split + 1), sizeof(char *));
-	if (!splited)
-		return (NULL);
+	if (!splited || !len_split)
+		return (splited);
 	index_split = 0;
 	while (*s && splited)
 	{

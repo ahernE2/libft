@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/24 16:12:48 by alejhern          #+#    #+#              #
-#    Updated: 2024/06/24 20:10:24 by alejhern         ###   ########.fr        #
+#    Updated: 2024/06/30 18:26:20 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ SRCS	=	ft_atoi.c			\
 			ft_strncmp.c		\
 			ft_strnstr.c		\
 			ft_strrchr.c		\
-			ft_strsplit.c		\
+			ft_split.c			\
 			ft_strtrim.c		\
 			ft_substr.c			\
 			ft_tolower.c		\
