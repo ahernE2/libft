@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:35:54 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/01 19:38:26 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/01 22:06:40 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 // Supongo que tus funciones ft_* están correctamente definidas e incluidas
 
-int	main(void)
+void	test_1(void)
 {
 	// Test isalpha
 	test_isalpha('A');
@@ -121,6 +121,4 @@ int	main(void)
 	// Test strdup
 	test_strdup("Hello, world!");
 	test_strdup("");
-
-	return (0);
 }

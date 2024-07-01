@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 19:48:50 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/01 19:48:57 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/01 22:42:05 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#include <strings.h>
+#include <string.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 void	test_isalpha(int c)
 {
@@ -52,9 +53,9 @@ void	test_isprint(int c)
 	printf("Function ISPRINT(%c) -> EXPECTED: %d RESULT: %d\n", c + '0', isprint(c), ft_isprint(c));
 }
 
-void	test_strlen(char *c)
+void	test_strlen(const char *str)
 {
-	printf("Function STRLEN(%s) -> EXPECTED: %d RESULT: %d\n", c, strlen(c), ft_strlen(c));
+	printf("Function STRLEN(%s) -> EXPECTED: %lu RESULT: %zu\n", str, strlen(str), ft_strlen(str));
 }
 
 void	test_strchr(char *str, char c)
@@ -86,35 +87,37 @@ void	test_strlcpy(char *dest, char *src, size_t n)
 	char	*expected;
 	char	*result;
 
+	expected = NULL;
+	result = NULL;
 	//Copiamos las cadenas
 	strcpy(expected, src);
 	strcpy(result, src);
 	//Ejecutamos funciones
-	strlcpy(expected, src, n);
+	strncpy(expected, src, n);
 	ft_strlcpy(result, src, n);
 	//Imprimos resultados test
-	printf("Function STRLCPY(%s, %s, %d):", dest, src, size);
+	printf("Function STRLCPY(%s, %s, %zu):", dest, src, n);
 	printf("\t-> EXPECTED: %s\n", expected);
 	printf("\t-> RESULT: %s\n", result);
 }
 
 void	test_strlcat(char *dest, char *src, size_t nb)
 {
-	size_t	expected;
-	size_t	result;
-	char	*dest_exp;
-	char	*dest_res;
-
+	char	*expected;
+	char	*result;
+	
+	expected = NULL;
+	result = NULL;
 	//Copiamos las cadenas
-	strcpy(dest_exp, src);
-	strcpy(dest_res, src);
+	strcpy(expected, dest);
+	strcpy(result, dest);
 	//Ejecutamos funciones
-	expected = strlcat(dest_exp, src, n);
-	result = ft_strlcat(dest_res, src, n);
+	strncat(expected, src, nb);
+	ft_strlcat(result, src, nb);
 	//Imprimos resultados test
-	printf("Function STRLCAT(%s, %s, %d):", dest, src, size);
-	printf("\t-> EXPECTED: %d CADENA: %s\n", expected, dest_exp);
-	printf("\t-> RESULT: %d CADENA: %s\n", result, dest_res);
+	printf("Function STRLCAT(%s, %s, %zu):", dest, src, nb);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT: %s\n", result);
 }
 
 void	test_strnstr(char *str, char *to_find, size_t len)
@@ -122,8 +125,10 @@ void	test_strnstr(char *str, char *to_find, size_t len)
 	char	*expected;
 	char	*result;
 
-	strnstr(str, to_find, len);
-	ft_strnstr(str, to_find, len);
+	expected = NULL;
+	result = NULL;
+	expected = strnstr(str, to_find, len);
+	result = ft_strnstr(str, to_find, len);
 	printf("Function STRNSTR(%s, %s, %d):", str, to_find, len);
 	printf("\t-> EXPECTED: %s\n", expected);
 	printf("\t-> RESULT: %s\n", result);
@@ -204,7 +209,7 @@ void	test_memcmp(char *s1, char *s2, size_t n)
 	printf("\t-> RESULT: %d\n", result);
 }
 
-void	test_memove(char *s1, char *s2, size_t n)
+void	test_memmove(char *s1, char *s2, size_t n)
 {
 	int	expected;
 	int	result;
@@ -213,8 +218,8 @@ void	test_memove(char *s1, char *s2, size_t n)
 	strcpy(expected, s);
 	strcpy(result, s);
 	//Ejecutamos funciones
-	expected = memove(s1, s2, n);
-	result = ft_memcmp(s1, s2, n);
+	expected = memmove(s1, s2, n);
+	result = ft_memmove(s1, s2, n);
 	printf("Function MEMMOVE(%s, %s, %d):", s1, s2, n);
 	printf("\t-> EXPECTED: %d\n", expected);
 	printf("\t-> RESULT: %d\n", result);

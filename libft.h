@@ -108,7 +108,7 @@ void	test_isascii(int c);
 void	test_toupper(int c);
 void	test_tolower(int c);
 void	test_isprint(int c);
-void	test_strlen(char *c);
+void	test_strlen(const char *str);
 void	test_strchr(char *str, char c);
 void	test_strrchr(char *str, char c);
 void	test_strlcpy(char *dest, char *src, size_t n);
@@ -119,15 +119,15 @@ void	test_memset(char *s, int c, size_t size);
 void	test_memcpy(char *s, char *d, size_t size);
 void	test_memchr(void *s, char c, size_t n);
 void	test_memcmp(char *s1, char *s2, size_t n);
-void	test_memove(char *s1, char *s2, size_t n);
+void	test_memmove(char *s1, char *s2, size_t n);
 void	test_atoi(char *nb);
 void	test_calloc(int nbem, size_t size);
 void	test_strdup(char *str);
 // Declarations from utils.c
 char	*get_color_test(void *expected, void *result, size_t n);
-// Declarations from test_1.c
-int	main(void);
 // Declarations from main.c
 int	main(int argc, char **argv);
+// Declarations from test_1.c
+void	test_1(void);
 
 #endif
