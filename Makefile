@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/24 16:12:48 by alejhern          #+#    #+#              #
-#    Updated: 2024/07/01 20:10:31 by alejhern         ###   ########.fr        #
+#    Updated: 2024/07/01 22:45:00 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,8 +65,8 @@ MAIN	=	test/main.c							\
 
 OBJS	=	${SRCS:.c=.o}
 OBJS_B	=	${SRCS_B:.c=.o}
-M_OBJS	=	${MAIN:.c=.o}
-DEPS	=	${SRCS:.c=.d} ${SRCS_B:.c=.d}
+OBJS_M	=	${MAIN:.c=.o}
+DEPS	=	${SRCS:.c=.d} ${SRCS_B:.c=.d} ${MAIN:.c=.d}
 
 # **************************************************************************** #
 #                                 VARIABLES                                    #
@@ -79,14 +79,14 @@ NAME		=	libft.a
 TEST		=	test_libft
 
 #Flags de compilacion
-FLAGS		=	-Wall -Werror -Wextra -I
-DEPFLAGS	=	--MMD -MP
+FLAGS		=	-Wall -Werror -Wextra -I. 
+DEPFLAGS	=	-MMD -MP
 
 # **************************************************************************** #
 #                                 RULES                                        #
 # **************************************************************************** #
 
-all:	${NAME}
+all:	${NAME} ${TEST}
 
 %.o: %.c
 	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando $<, espere unos segundos..."
@@ -95,7 +95,7 @@ all:	${NAME}
 
 $(NAME):	${OBJS}
 	@echo	"(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Creando libreria, espere unos segundos..."
-	ar -rcs ${NAME} ${OBJS} ${OBJS_M}
+	ar -rcs ${NAME} ${OBJS}
 	@echo	"(•̀ᴗ•́)و ${NAME} generado!"
 
 bonus:		${OBJS_B}
@@ -103,15 +103,17 @@ bonus:		${OBJS_B}
 	ar -rcs ${NAME} ${OBJS_B}
 	@echo	"(•̀ᴗ•́)و ${NAME} generado!"
 
-$(TEST): $(NAME) $(MAIN_OBJ)
-	cc $(CFLAGS) -o $(TEST) $(MAIN_OBJ) $(NAME)
+$(TEST): ${NAME} ${OBJS_M}
+	@echo  "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando el ejecutable ${TEST}..."
+	cc ${FLAGS} -o ${TEST} ${OBJS_M} ${NAME}
+	@echo  "(•̀ᴗ•́)و ${TEST} generado!"
 
 clean:
-	rm -f ${OBJS} ${OBJS_B} ${DEPS}
+	rm -f ${OBJS} ${OBJS_B} ${OBJS_M} ${DEPS}
 	@echo	"¯\_(ツ)_/¯ Objects removidos!"
 
 fclean:		clean
-	rm -f ${NAME}
+	rm -f ${NAME} ${TEST}
 	@echo	"(╯°□°）╯︵ ┻━┻ $(NAME) removido!"
 
 re: fclean all
