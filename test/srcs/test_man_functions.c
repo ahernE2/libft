@@ -1,63 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_1.c                                           :+:      :+:    :+:   */
+/*   test_man_functions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 02:02:53 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/18 02:07:38 by alejhern         ###   ########.fr       */
+/*   Created: 2024/07/01 19:48:50 by alejhern          #+#    #+#             */
+/*   Updated: 2024/07/01 19:48:57 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 #include <stdio.h>
 #include <ctype.h>
 #include <strings.h>
 #include <stdlib.h>
 
-void	test_isalpha(char c)
+void	test_isalpha(int c)
 {
-	printf("Funcion ISALPHA(%c) -> EXPECTED: %d RESULT: %d", c, isalpha(c), ft_isalpha(c));
+	printf("Funcion ISALPHA(%c) -> EXPECTED: %d RESULT: %d", c + '0', isalpha(c), ft_isalpha(c));
 }
 
-void	test_isdigit(char c)
+void	test_isdigit(int c)
 {
-	printf("Funcion ISDIGIT(%c) -> EXPECTED: %d RESULT: %d", c, isdigit(c), ft_isdigit(c));
+	printf("Funcion ISDIGIT(%c) -> EXPECTED: %d RESULT: %d", c + '0', isdigit(c), ft_isdigit(c));
 }
 
-void	test_isalnum(char c)
+void	test_isalnum(int c)
 {
-	printf("Function ISALNUM(%c) -> EXPECTED: %d RESULT: %d\n", c, isalnum(c), ft_isalnum(c));
+	printf("Function ISALNUM(%c) -> EXPECTED: %d RESULT: %d\n", c + '0', isalnum(c), ft_isalnum(c));
 }
 
-void	test_isascii(char c)
+void	test_isascii(int c)
 {
-	printf("Function ISASCII(%c) -> EXPECTED: %d RESULT: %d\n", c, isascii(c), ft_isascii(c));
+	printf("Function ISASCII(%c) -> EXPECTED: %d RESULT: %d\n", c + '0', isascii(c), ft_isascii(c));
 }
 
-void	test_toupper(int param)
+void	test_toupper(int c)
 {
-	char	expected;
-	char	result;
-
-	expected = toupper(param) + '0';
-	result = ft_toupper(param) + '0';
-	printf("Function TOUPPER(%d) -> EXPECTED: %c RESULT: %c\n", param + '0', expected, result);
+	printf("Function TOUPPER(%d) -> EXPECTED: %c RESULT: %c\n", c + '0', toupper(c), ft_toupper(c));
 }
 
-void	test_tolower(int param)
+void	test_tolower(int c)
 {
-	char	expected;
-	char	result;
-
-	expected = tolower(param) + '0';
-	result = ft_tolower(param) + '0';
-	printf("Function TOLOWER(%d) -> EXPECTED: %c RESULT: %c\n", param + '0', expected, result);
+	printf("Function TOLOWER(%d) -> EXPECTED: %c RESULT: %c\n", c + '0', tolower(c), ft_tolower(c));
 }
 
-void	test_isprint(char c)
+void	test_isprint(int c)
 {
-	printf("Function ISPRINT(%c) -> EXPECTED: %d RESULT: %d\n", c, isprint(c), ft_isprint(c));
+	printf("Function ISPRINT(%c) -> EXPECTED: %d RESULT: %d\n", c + '0', isprint(c), ft_isprint(c));
 }
 
 void	test_strlen(char *c)
@@ -235,7 +227,33 @@ void	test_atoi(char *nb)
 
 	expected = atoi(nb);
 	result = ft_atoi(nb);
-	printf("Function ATOI(%s)", nb);
+	printf("Function ATOI(%s):", nb);
+	printf("\t-> EXPECTED: %d\n", expected);
+	printf("\t-> RESULT: %d\n", result);
+}
+
+void	test_calloc(int nbem, size_t size)
+{
+	void	*expected;
+	void	*result;
+
+	*expected = calloc(nbem, size);
+	*result	= ft_calloc(nbem, size);
+	printf("Function MALLOC(%s, %s)", nbem, size);
+	if (memcmp(expected, result) == 0)
+		printf("OK!");
+	else
+		printf("FAIL");
+}
+
+void	test_strdup(char *str)
+{
+	char	*expected;
+	char	*result;
+
+	expected = strdup(str);
+	result = ft_strdup(str);
+	printf("Function STRDUP");
 	printf("\t-> EXPECTED: %d\n", expected);
 	printf("\t-> RESULT: %d\n", result);
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 18:23:06 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/30 18:25:00 by alejhern         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -19,28 +7,29 @@
 # include <stddef.h>
 # include <stdint.h>
 
-typedef struct s_list
+typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
+
 // Declarations from ft_atoi.c
-int		ft_atoi(char *str);
+int	ft_atoi(char *str);
 // Declarations from ft_bzero.c
 void	ft_bzero(void *s, size_t n);
 // Declarations from ft_calloc.c
 void	*ft_calloc(size_t nmemb, size_t size);
 // Declarations from ft_isalnum.c
-int		ft_isalnum(int c);
+int	ft_isalnum(int c);
 // Declarations from ft_isalpha.c
-int		ft_isalpha(int c);
+int	ft_isalpha(int c);
 // Declarations from ft_isascii.c
-int		ft_isascii(int c);
+int	ft_isascii(int c);
 // Declarations from ft_isdigit.c
-int		ft_isdigit(int c);
+int	ft_isdigit(int c);
 // Declarations from ft_isprint.c
-int		ft_isprint(int c);
+int	ft_isprint(int c);
 // Declarations from ft_itoa.c
 char	*ft_itoa(int nb);
 // Declarations from ft_lstadd_front_bonus.c
@@ -60,7 +49,7 @@ size_t	ft_lstsize(t_list *lst);
 // Declarations from ft_memchr.c
 void	*ft_memchr(void *s, int c, size_t n);
 // Declarations from ft_memcmp.c
-int		ft_memcmp(void *s1, void *s2, size_t n);
+int	ft_memcmp(void *s1, void *s2, size_t n);
 // Declarations from ft_memcpy.c
 void	*ft_memcpy(void *dest, void *src, size_t n);
 // Declarations from ft_memmove.c
@@ -92,7 +81,7 @@ size_t	ft_strlen(char *str);
 // Declarations from ft_strmapi.c
 char	*ft_strmapi(char *s, char (*f)(unsigned int, char));
 // Declarations from ft_strncmp.c
-int		ft_strncmp(char *s1, char *s2, size_t n);
+int	ft_strncmp(char *s1, char *s2, size_t n);
 // Declarations from ft_strnstr.c
 char	*ft_strnstr(char *str, char *to_find, size_t len);
 // Declarations from ft_strrchr.c
@@ -102,14 +91,43 @@ char	*ft_strtrim(char *s1, char *set);
 // Declarations from ft_substr.c
 char	*ft_substr(char *s, size_t start, size_t len);
 // Declarations from ft_tolower.c
-int		ft_tolower(int c);
+int	ft_tolower(int c);
 // Declarations from ft_toupper.c
-int		ft_toupper(int c);
+int	ft_toupper(int c);
 // Declarations from ft_lstclear_bonus.c
 void	ft_lstclear(t_list **lst, void (*del)(void *));
-// Declarations from ft_split.c
-char	**ft_split(char *s, char c);
 // Declarations from ft_lstadd_back_bonus.c
 void	ft_lstadd_back(t_list **lst, t_list *new);
+// Declarations from ft_split.c
+char	**ft_split(char *s, char c);
+// Declarations from test_man_functions.c
+void	test_isalpha(int c);
+void	test_isdigit(int c);
+void	test_isalnum(int c);
+void	test_isascii(int c);
+void	test_toupper(int c);
+void	test_tolower(int c);
+void	test_isprint(int c);
+void	test_strlen(char *c);
+void	test_strchr(char *str, char c);
+void	test_strrchr(char *str, char c);
+void	test_strlcpy(char *dest, char *src, size_t n);
+void	test_strlcat(char *dest, char *src, size_t nb);
+void	test_strnstr(char *str, char *to_find, size_t len);
+void	test_bzero(char *s, size_t size);
+void	test_memset(char *s, int c, size_t size);
+void	test_memcpy(char *s, char *d, size_t size);
+void	test_memchr(void *s, char c, size_t n);
+void	test_memcmp(char *s1, char *s2, size_t n);
+void	test_memove(char *s1, char *s2, size_t n);
+void	test_atoi(char *nb);
+void	test_calloc(int nbem, size_t size);
+void	test_strdup(char *str);
+// Declarations from utils.c
+char	*get_color_test(void *expected, void *result, size_t n);
+// Declarations from test_1.c
+int	main(void);
+// Declarations from main.c
+int	main(int argc, char **argv);
 
 #endif

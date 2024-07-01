@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 #include <string.h>
 
 char	*get_color_test(void *expected, void *result, size_t n)

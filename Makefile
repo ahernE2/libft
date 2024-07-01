@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/24 16:12:48 by alejhern          #+#    #+#              #
-#    Updated: 2024/06/30 18:26:20 by alejhern         ###   ########.fr        #
+#    Updated: 2024/07/01 20:10:31 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,8 +59,13 @@ SRCS_B	=	ft_lstadd_back_bonus.c		\
 		 	ft_lstnew_bonus.c			\
 		 	ft_lstsize_bonus.c
 
+MAIN	=	test/main.c							\
+			test/test_1.c						\
+			test/srcs/test_man_functions.c
+
 OBJS	=	${SRCS:.c=.o}
 OBJS_B	=	${SRCS_B:.c=.o}
+M_OBJS	=	${MAIN:.c=.o}
 DEPS	=	${SRCS:.c=.d} ${SRCS_B:.c=.d}
 
 # **************************************************************************** #
@@ -69,6 +74,9 @@ DEPS	=	${SRCS:.c=.d} ${SRCS_B:.c=.d}
 
 #Nombre del Programa
 NAME		=	libft.a
+
+#Tester del Programa
+TEST		=	test_libft
 
 #Flags de compilacion
 FLAGS		=	-Wall -Werror -Wextra -I
@@ -87,13 +95,16 @@ all:	${NAME}
 
 $(NAME):	${OBJS}
 	@echo	"(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Creando libreria, espere unos segundos..."
-	ar -rcs ${NAME} ${OBJS}
+	ar -rcs ${NAME} ${OBJS} ${OBJS_M}
 	@echo	"(•̀ᴗ•́)و ${NAME} generado!"
 
 bonus:		${OBJS_B}
 	@echo	"(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Creando libreria bonus, espere unos segundos..."
 	ar -rcs ${NAME} ${OBJS_B}
 	@echo	"(•̀ᴗ•́)و ${NAME} generado!"
+
+$(TEST): $(NAME) $(MAIN_OBJ)
+	cc $(CFLAGS) -o $(TEST) $(MAIN_OBJ) $(NAME)
 
 clean:
 	rm -f ${OBJS} ${OBJS_B} ${DEPS}
