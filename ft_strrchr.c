@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	char	*last_ocurrence;
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(char *str, int c)
 	while (*str)
 	{
 		if (*str == (char) c)
-			last_ocurrence = str;
+			last_ocurrence = (char *) str;
 		str++;
 	}
 	if (*str == (char) c)

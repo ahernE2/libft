@@ -12,16 +12,7 @@
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
-	unsigned char	*util;
-	size_t			index;
-
-	util = (unsigned char *) s;
-	index = 0;
-	while (index < n)
-	{
-		util[index] = 0;
-		index++;
-	}
+	ft_memset(s, 0, len);
 }

@@ -71,8 +71,8 @@ DEPS	=	${SRCS:.c=.d} ${SRCS_B:.c=.d}
 NAME		=	libft.a
 
 #Flags de compilacion
-FLAGS		=	-Wall -Werror -Wextra -I
-DEPFLAGS	=	--MMD -MP
+FLAGS		=	-Wall -Werror -Wextra -I.
+DEPFLAGS	=	-MMD -MP
 
 # **************************************************************************** #
 #                                 RULES                                        #

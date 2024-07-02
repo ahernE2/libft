@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	ft_counter(char *s, char c)
+static size_t	ft_counter(char const *s, char c)
 {
 	size_t	count;
 	int		in_substring;
@@ -33,13 +33,13 @@ static size_t	ft_counter(char *s, char c)
 	return (count);
 }
 
-static char	*ft_addsubsplit(char *s, char c)
+static char	*ft_addsubsplit(char const *s, char c)
 {
 	char	*start;
 	size_t	len;
 	char	*subsplit;
 
-	start = s;
+	start = (char *)s;
 	while (*s && *s != c)
 		s++;
 	len = (size_t)(s - start);
@@ -61,7 +61,7 @@ static void	ft_checkmem(char **splited, size_t index_split)
 	}
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	len_split;
 	char	**splited;
