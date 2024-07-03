@@ -19,126 +19,124 @@
 
 void	test_1(void)
 {
-	// Alpha Tests
-	print_title("Alpha Tests");
-	test_isalpha('A');
-	test_isalpha('z');
-	test_isalpha('5');
-	test_isalpha('!');
+    print_title("Testing ft_atoi");
+    test_atoi("12345");
+    test_atoi("-678");
+    test_atoi("0");
+    test_atoi("2147483647");  // Max value for int
+    test_atoi("-2147483648"); // Min value for int
 
-	// Digit Tests
-	print_title("Digit Tests");
-	test_isdigit('0');
-	test_isdigit('9');
-	test_isdigit('a');
-	test_isdigit(' ');
+    print_title("Testing ft_bzero");
+    test_bzero("To infinity and beyond", 10);
+    test_bzero("I am Iron Man", 7);
+    test_bzero("May the Force be with you", 6);
+    test_bzero("After all this time?", 0); // Edge case with size 0
 
-	// Alphanumeric Tests
-	print_title("Alphanumeric Tests");
-	test_isalnum('A');
-	test_isalnum('5');
-	test_isalnum(' ');
-	test_isalnum('!');
+    print_title("Testing ft_calloc");
+    test_calloc(5, sizeof(int));
+    test_calloc(0, sizeof(double)); // Edge case with nmemb = 0
+    test_calloc(1, sizeof(char));
+    test_calloc(10, sizeof(long));
 
-	// ASCII Tests
-	print_title("ASCII Tests");
-	test_isascii(65);
-	test_isascii(128);
-	test_isascii(255);
-	test_isascii(-1);
+    print_title("Testing ft_isalnum");
+    test_isalnum('A');
+    test_isalnum('5');
+    test_isalnum('*');
+    test_isalnum(' ');
 
-	// Uppercase Conversion Tests
-	print_title("Uppercase Conversion Tests");
-	test_toupper('a');
-	test_toupper('A');
-	test_toupper('1');
-	test_toupper('!');
+    print_title("Testing ft_isalpha");
+    test_isalpha('D');
+    test_isalpha('W');
+    test_isalpha('E');
+    test_isalpha('*');
 
-	// Lowercase Conversion Tests
-	print_title("Lowercase Conversion Tests");
-	test_tolower('A');
-	test_tolower('a');
-	test_tolower('1');
-	test_tolower('!');
+    print_title("Testing ft_isascii");
+    test_isascii('T');
+    test_isascii('0');
+    test_isascii(65);  // ASCII 'A'
+    test_isascii(0);   // ASCII NUL
 
-	// Printable Character Tests
-	print_title("Printable Character Tests");
-	test_isprint(' ');
-	test_isprint('A');
-	test_isprint(127);
-	test_isprint(128);
+    print_title("Testing ft_isdigit");
+    test_isdigit('9');
+    test_isdigit('3');
+    test_isdigit('N');
+    test_isdigit(' ');
 
-	// String Length Tests
-	print_title("String Length Tests");
-	test_strlen("");
-	test_strlen("Hello");
-	test_strlen("A longer string for testing.");
+    print_title("Testing ft_isprint");
+    test_isprint('I');
+    test_isprint('W');
+    test_isprint('H');
+    test_isprint(1); // Non-printable ASCII
 
-	// String Character Search Tests
-	print_title("String Character Search Tests");
-	test_strchr("Hello, world!", 'o');
-	test_strchr("Hello, world!", 'z');
-	test_strchr("", 'a');
+    print_title("Testing ft_tolower");
+    test_tolower('A');
+    test_tolower('S');
+    test_tolower('W');
+    test_tolower('7');
 
-	// String Reverse Character Search Tests
-	print_title("String Reverse Character Search Tests");
-	test_strrchr("Hello, world!", 'o');
-	test_strrchr("Hello, world!", 'z');
-	test_strrchr("", 'a');
+    print_title("Testing ft_toupper");
+    test_toupper('a');
+    test_toupper('i');
+    test_toupper('e');
+    test_toupper('9');
 
-	// String Copy Tests
-	print_title("String Copy Tests");
-	test_strlcpy((char[20]){}, "Hello, world!", 5);
-	test_strlcpy((char[20]){}, "Short", 10);
+    print_title("Testing ft_memcpy");
+    test_memcpy("I love you. / I know.", "I am Iron Man", 14);
+    test_memcpy("Gotta catch 'em all!", "With great power comes great responsibility", 18);
+    test_memcpy("Plus ultra!", "I solemnly swear that I am up to no good", 11);
+    test_memcpy("Avengers Assemble!", "I have spoken.", 7);
 
-	// String Concatenation Tests
-	print_title("String Concatenation Tests");
-	test_strlcat((char[20]){"Hello"}, " world!", 20);
-	test_strlcat((char[20]){"Hello"}, " more text", 5);
+    print_title("Testing ft_memmove");
+    test_memmove("I am Groot", "Winter is coming", 9);
+    test_memmove("To infinity and beyond", "I am inevitable.", 6);
+    test_memmove("Do or do not, there is no try.", "I am Iron Man", 7);
+    test_memmove("May the Force be with you", "It's a trap!", 12);
 
-	// String Search with Length Limit Tests
-	print_title("String Search with Length Limit Tests");
-	test_strnstr("Hello, world!", "world", 12);
-	test_strnstr("Hello, world!", "test", 12);
+    print_title("Testing ft_memset");
+    test_memset("With great power comes great responsibility", '*', 20);
+    test_memset("After all this time?", '0', 5);
+    test_memset("I am Iron Man", '#', 13);
+    test_memset("To infinity and beyond", '!', 10);
 
-	// Memory Zeroing Tests
-	print_title("Memory Zeroing Tests");
-	test_bzero((char[10]){"123456789"}, 5);
+    print_title("Testing ft_strchr");
+    test_strchr("I am Groot", 'G');
+    test_strchr("Avengers Assemble!", 'o');
+    test_strchr("Winter is coming", 'c');
+    test_strchr("May the Force be with you", 'x');
 
-	// Memory Set Tests
-	print_title("Memory Set Tests");
-	test_memset((char[10]){"123456789"}, 'A', 5);
+    print_title("Testing ft_strdup");
+    test_strdup("Avengers Assemble!");
+    test_strdup("I am Iron Man");
+    test_strdup("May the Force be with you");
+    test_strdup("Winter is coming");
 
-	// Memory Copy Tests
-	print_title("Memory Copy Tests");
-	test_memcpy((char[10]){}, "Hello", 6);
+    print_title("Testing ft_strlen");
+    test_strlen("To infinity and beyond");
+    test_strlen("Winter Soldier");
+    test_strlen("12345");
+    test_strlen("Avengers Assemble!");
 
-	// Memory Character Search Tests
-	print_title("Memory Character Search Tests");
-	test_memchr("Hello, world!", 'o', 12);
-	test_memchr("Hello, world!", 'z', 12);
+    print_title("Testing ft_strnstr");
+    test_strnstr("May the Force be with you", "Force", 20);
+    test_strnstr("Avengers Assemble!", "Assemble!", 5);
+    test_strnstr("I am Groot", "Groot", 8);
+    test_strnstr("Winter is coming", "is", 10);
 
-	// Memory Compare Tests
-	print_title("Memory Compare Tests");
-	test_memcmp("Hello", "Hello", 5);
-	test_memcmp("Hello", "World", 5);
+    print_title("Testing ft_strrchr");
+    test_strrchr("May the Force be with you", 'e');
+    test_strrchr("Avengers Assemble!", 'A');
+    test_strrchr("Winter is coming", 'c');
+    test_strrchr("I am Groot", 'x');
 
-	// Memory Move Tests
-	print_title("Memory Move Tests");
-	test_memmove((char[20]){"Hello, world!"} + 7, (char[20]){"Hello, world!"}, 6);
+    print_title("Testing ft_memchr");
+    test_memchr("To infinity and beyond", 'b', 20);
+    test_memchr("May the Force be with you", 'F', 10);
+    test_memchr("12345", '2', 5);
+    test_memchr("Avengers Assemble!", 'z', 8);
 
-	// ASCII to Integer Conversion Tests
-	print_title("ASCII to Integer Conversion Tests");
-	test_atoi("123");
-	test_atoi("-456");
-	test_atoi("0");
-
-	// Allocated Memory Zeroing Tests
-	print_title("Allocated Memory Zeroing Tests");
-	test_calloc(5, sizeof(int));
-
-	// String Duplication Tests
-	print_title("String Duplication Tests");
-	test_strdup("Hello, world!");
-	test_strdup("");
+    print_title("Testing ft_memcmp");
+    test_memcmp("To infinity and beyond", "To the moon and back", 10);
+    test_memcmp("12345", "12345", 5);
+    test_memcmp("May the Force be with you", "Star Wars", 6);
+    test_memcmp("I am Groot", "I am groot", 9);
 }
