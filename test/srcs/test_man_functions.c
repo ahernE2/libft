@@ -142,8 +142,8 @@ void test_memchr(void *s, char c, size_t n)
 	unsigned char *result = (unsigned char *)ft_memchr(s, c, n);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function MEMCHR('%s', '%c', %zu)\n", (char *)s, c, n);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -175,8 +175,8 @@ void test_memcpy(char *s, char *d, size_t size)
 
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function MEMCPY('%s', '%s', %zu)\n", s, d, size);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -195,8 +195,8 @@ void test_memmove(char *s1, char *s2, size_t n)
 	ft_memmove(result, s2, n);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function MEMMOVE('%s', '%s', %zu)\n", s1, s2, n);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -215,9 +215,9 @@ void test_memset(char *s, int c, size_t size)
 	ft_memset(result, c, size);
 
     printf("%s", get_color_test(expected, result, sizeof(char)));
-	printf("Function MEMSET('%s', %d, %zu)\n", s, c, size);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("Function MEMSET('%s', '%c', %zu)\n", s, (char) c, size);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -228,8 +228,8 @@ void test_strchr(char *str, char c)
 	char *result = ft_strchr(str, c);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRCHR('%s', '%c')\n", str, c);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -240,8 +240,8 @@ void test_strdup(char *str)
 	char *result = ft_strdup(str);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRDUP('%s')\n", str);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n");
 	free(expected);
@@ -277,8 +277,8 @@ void test_strlcat(char *dest, char *src, size_t n)
 
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRLCAT('%s', '%s', %zu)\n", dest, src, n);
-	printf("\t-> EXPECTED: %d CADENA: '%s'\n", exp, expected);
-	printf("\t-> RESULT:   %d CADENA: '%s'\n", res, result);
+	printf("\t-> EXPECTED: %d CADENA: %s\n", exp, expected);
+	printf("\t-> RESULT:   %d CADENA: %s\n", res, result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -300,8 +300,8 @@ void test_strlcpy(char *dest, char *src, size_t n)
 
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRLCPY('%s', '%s', %zu)\n", dest, src, n);
-	printf("\t-> EXPECTED: %d CADENA: '%s'\n", exp, expected);
-	printf("\t-> RESULT:   %d CADENA: '%s'\n", res, result);
+	printf("\t-> EXPECTED: %d CADENA: %s\n", exp, expected);
+	printf("\t-> RESULT:   %d CADENA: %s\n", res, result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -312,8 +312,8 @@ void test_strnstr(char *str, char *to_find, size_t len)
 	char *result = ft_strnstr(str, to_find, len);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRNSTR('%s', '%s', %zu)\n", str, to_find, len);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -324,8 +324,8 @@ void test_strrchr(char *str, char c)
 	char *result = ft_strrchr(str, c);
     printf("%s", get_color_test(expected, result, sizeof(char)));
 	printf("Function STRRCHR('%s', '%c')\n", str, c);
-	printf("\t-> EXPECTED: '%s'\n", expected);
-	printf("\t-> RESULT:   '%s'\n", result);
+	printf("\t-> EXPECTED: %s\n", expected);
+	printf("\t-> RESULT:   %s\n", result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -336,8 +336,8 @@ void test_tolower(int c)
 	int result = ft_tolower(c);
     printf("%s", get_color_test((void *)&expected, (void *)&result, sizeof(int)));
 	printf("Function TOLOWER(%c)\n", (unsigned char) c);
-	printf("\t-> EXPECTED: '%c'\n", (unsigned char) expected);
-	printf("\t-> RESULT:   '%c'\n", (unsigned char) result);
+	printf("\t-> EXPECTED: %c\n", (unsigned char) expected);
+	printf("\t-> RESULT:   %c\n", (unsigned char) result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }
@@ -348,8 +348,8 @@ void test_toupper(int c)
 	int result = ft_toupper(c);
     printf("%s", get_color_test((void *)&expected, (void *)&result, sizeof(int)));
 	printf("Function TOUPPER(%c)\n", (unsigned char) c);
-	printf("\t-> EXPECTED: '%c'\n", (unsigned char) expected);
-	printf("\t-> RESULT:   '%c'\n", (unsigned char) result);
+	printf("\t-> EXPECTED: %c\n", (unsigned char) expected);
+	printf("\t-> RESULT:   %c\n", (unsigned char) result);
     printf("\033[0m"); // Reset text color
     printf("\n"); 
 }

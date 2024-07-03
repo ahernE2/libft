@@ -17,26 +17,28 @@
 #include <string.h>
 #include <stdlib.h>
 
-void	test_1(void)
+void test_1(void)
 {
     print_title("Testing ft_atoi");
-    test_atoi("12345");
-    test_atoi("-678");
+    test_atoi("123456");
+    test_atoi("-78910");
     test_atoi("0");
     test_atoi("2147483647");  // Max value for int
     test_atoi("-2147483648"); // Min value for int
+	test_atoi("99999999999999");
+    test_atoi("-99999999999999");
 
     print_title("Testing ft_bzero");
-    test_bzero("To infinity and beyond", 10);
-    test_bzero("I am Iron Man", 7);
-    test_bzero("May the Force be with you", 6);
-    test_bzero("After all this time?", 0); // Edge case with size 0
+    test_bzero("Expecto Patronum!", 8);
+    test_bzero("Hakuna Matata.", 5);
+    test_bzero("I am Iron Man.", 10);
+    test_bzero("May the Force be with you.", 0); // Edge case with size 0
 
     print_title("Testing ft_calloc");
-    test_calloc(5, sizeof(int));
+    test_calloc(6, sizeof(int));
     test_calloc(0, sizeof(double)); // Edge case with nmemb = 0
-    test_calloc(1, sizeof(char));
-    test_calloc(10, sizeof(long));
+    test_calloc(3, sizeof(char));
+    test_calloc(9, sizeof(long));
 
     print_title("Testing ft_isalnum");
     test_isalnum('A');
@@ -68,7 +70,67 @@ void	test_1(void)
     test_isprint('H');
     test_isprint(1); // Non-printable ASCII
 
-    print_title("Testing ft_tolower");
+    print_title("Testing ft_memcpy");
+    test_memcpy("Hakuna Matata.", "I solemnly swear that I am up to no good.", 10);
+    test_memcpy("I am Iron Man.", "With great power comes great responsibility.", 20);
+    test_memcpy("May the Force be with you.", "Wingardium Leviosa!", 15);
+    test_memcpy("To infinity and beyond!", "Expecto Patronum!", 15);
+
+    print_title("Testing ft_memmove");
+    test_memmove("I am Iron Man.", "With great power comes great responsibility.", 30);
+    test_memmove("I solemnly swear that I am up to no good.", "It's over 9000!", 15);
+    test_memmove("May the Force be with you.", "Expecto Patronum!", 20);
+    test_memmove("The One Piece is real!", "Plus Ultra!", 11);
+
+    print_title("Testing ft_memset");
+    test_memset("I am Iron Man.", '!', 5);
+    test_memset("May the Force be with you.", '*', 18);
+    test_memset("To infinity and beyond!", '@', 10);
+    test_memset("With great power comes great responsibility.", '#', 25);
+
+    print_title("Testing ft_strchr");
+    test_strchr("I am Iron Man.", 'I');
+    test_strchr("The One Piece is real!", 'P');
+    test_strchr("Plus Ultra!", 'U');
+    test_strchr("To infinity and beyond!", 'z'); // Character not present
+
+    print_title("Testing ft_strdup");
+    test_strdup("I solemnly swear that I am up to no good.");
+    test_strdup("May the Force be with you.");
+    test_strdup("To infinity and beyond!");
+    test_strdup("With great power comes great responsibility.");
+
+    print_title("Testing ft_strlen");
+    test_strlen("I am Iron Man.");
+    test_strlen("Plus Ultra!");
+    test_strlen("The One Piece is real!");
+    test_strlen("To infinity and beyond!");
+
+    print_title("Testing ft_strnstr");
+    test_strnstr("I solemnly swear that I am up to no good.", "solemnly", 25);
+    test_strnstr("May the Force be with you.", "Force", 10); // Should not find
+    test_strnstr("To infinity and beyond!", "beyond", 18);
+    test_strnstr("With great power comes great responsibility.", "power", 20);
+
+    print_title("Testing ft_strrchr");
+    test_strrchr("I am Iron Man.", 'I');
+    test_strrchr("May the Force be with you.", 'z'); // Character not present
+    test_strrchr("To infinity and beyond!", 'n');
+    test_strrchr("With great power comes great responsibility.", 'r');
+
+    print_title("Testing ft_memchr");
+    test_memchr("I am Iron Man.", 'M', 5); // Should not find
+    test_memchr("Plus Ultra!", 'U', 10);
+    test_memchr("The One Piece is real!", 'P', 20);
+    test_memchr("To infinity and beyond!", 'y', 18);
+
+    print_title("Testing ft_memcmp");
+    test_memcmp("I am Iron Man.", "I am inevitable.", 8);
+    test_memcmp("The One Piece is real!", "Plus Ultra!", 12);
+    test_memcmp("To infinity and beyond!", "To the moon and back", 10);
+    test_memcmp("With great power comes great responsibility.", "With great power comes great responsibility.", 40);
+
+	print_title("Testing ft_tolower");
     test_tolower('A');
     test_tolower('S');
     test_tolower('W');
@@ -79,64 +141,4 @@ void	test_1(void)
     test_toupper('i');
     test_toupper('e');
     test_toupper('9');
-
-    print_title("Testing ft_memcpy");
-    test_memcpy("I love you. / I know.", "I am Iron Man", 14);
-    test_memcpy("Gotta catch 'em all!", "With great power comes great responsibility", 18);
-    test_memcpy("Plus ultra!", "I solemnly swear that I am up to no good", 11);
-    test_memcpy("Avengers Assemble!", "I have spoken.", 7);
-
-    print_title("Testing ft_memmove");
-    test_memmove("I am Groot", "Winter is coming", 9);
-    test_memmove("To infinity and beyond", "I am inevitable.", 6);
-    test_memmove("Do or do not, there is no try.", "I am Iron Man", 7);
-    test_memmove("May the Force be with you", "It's a trap!", 12);
-
-    print_title("Testing ft_memset");
-    test_memset("With great power comes great responsibility", '*', 20);
-    test_memset("After all this time?", '0', 5);
-    test_memset("I am Iron Man", '#', 13);
-    test_memset("To infinity and beyond", '!', 10);
-
-    print_title("Testing ft_strchr");
-    test_strchr("I am Groot", 'G');
-    test_strchr("Avengers Assemble!", 'o');
-    test_strchr("Winter is coming", 'c');
-    test_strchr("May the Force be with you", 'x');
-
-    print_title("Testing ft_strdup");
-    test_strdup("Avengers Assemble!");
-    test_strdup("I am Iron Man");
-    test_strdup("May the Force be with you");
-    test_strdup("Winter is coming");
-
-    print_title("Testing ft_strlen");
-    test_strlen("To infinity and beyond");
-    test_strlen("Winter Soldier");
-    test_strlen("12345");
-    test_strlen("Avengers Assemble!");
-
-    print_title("Testing ft_strnstr");
-    test_strnstr("May the Force be with you", "Force", 20);
-    test_strnstr("Avengers Assemble!", "Assemble!", 5);
-    test_strnstr("I am Groot", "Groot", 8);
-    test_strnstr("Winter is coming", "is", 10);
-
-    print_title("Testing ft_strrchr");
-    test_strrchr("May the Force be with you", 'e');
-    test_strrchr("Avengers Assemble!", 'A');
-    test_strrchr("Winter is coming", 'c');
-    test_strrchr("I am Groot", 'x');
-
-    print_title("Testing ft_memchr");
-    test_memchr("To infinity and beyond", 'b', 20);
-    test_memchr("May the Force be with you", 'F', 10);
-    test_memchr("12345", '2', 5);
-    test_memchr("Avengers Assemble!", 'z', 8);
-
-    print_title("Testing ft_memcmp");
-    test_memcmp("To infinity and beyond", "To the moon and back", 10);
-    test_memcmp("12345", "12345", 5);
-    test_memcmp("May the Force be with you", "Star Wars", 6);
-    test_memcmp("I am Groot", "I am groot", 9);
 }
