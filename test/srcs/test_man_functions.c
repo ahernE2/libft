@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 02:49:52 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/03 18:42:51 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:01:16 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -345,6 +345,7 @@ void	test_strncmp(char *s1, char *s2, size_t n)
 	result = ft_strncmp(s1, s2, n);
 	printf("%s", get_color_test((void *)&expected, (void *)&result,
 			sizeof(int)));
+	printf("Function STRNCMP('%s', '%s', %zu)\n", s1, s2, n);
 	printf("\t-> EXPECTED: %d\n", expected);
 	printf("\t-> RESULT:   %d\n", result);
 	printf("\033[0m");
