@@ -6,7 +6,7 @@
 #    By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 23:53:08 by alejhern          #+#    #+#              #
-#    Updated: 2024/07/02 23:53:10 by alejhern         ###   ########.fr        #
+#    Updated: 2024/07/05 22:38:02 by alejhern         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,9 @@ MAIN	=	test/main.c								\
 			test/man-aux/strlcpy.c					\
 			test/man-aux/strlcat.c					\
 			test/man-aux/strnstr.c					\
-			test/srcs/test_man_functions.c
+			test/srcs/test_man_functions.c			\
+			test/test_2.c							\
+			test/srcs/test_aditionals_functions.c
 
 OBJS	=	${SRCS:.c=.o}
 OBJS_B	=	${SRCS_B:.c=.o}
