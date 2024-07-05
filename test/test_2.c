@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 22:14:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/05 22:34:02 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/05 22:48:15 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@
 #include <stdio.h>
 #include <limits.h> // Para usar INT_MAX e INT_MIN
 
-int	test_2(void)
+void striteri_func(unsigned int i, char *c)
+{
+		*c = *c + i;
+}
+
+char strmapi_func(unsigned int i, char c)
+{
+	return (c + i);
+}
+
+void	test_2(void)
 {
 	// Test for ft_substr
 	print_title("Testing ft_substr");
@@ -27,24 +37,24 @@ int	test_2(void)
 	test_substr(NULL, 0, 5, NULL); // NULL string
 
 	// Test for ft_join
-	print_title("Testing ft_join");
-	test_join("I open at the ", "close", "I open at the close");
-	test_join("Mischief ", "Managed", "Mischief Managed");
-	test_join("Yer a ", "wizard, Harry", "Yer a wizard, Harry");
-	test_join("", "Expecto Patronum", "Expecto Patronum");
-	test_join("The ones that love us ", "never really leave us", "The ones that love us never really leave us");
-	test_join(NULL, "Expecto Patronum", NULL); // NULL first string
-	test_join("Expecto Patronum", NULL, NULL); // NULL second string
+	print_title("Testing ft_strjoin");
+	test_strjoin("I open at the ", "close", "I open at the close");
+	test_strjoin("Mischief ", "Managed", "Mischief Managed");
+	test_strjoin("Yer a ", "wizard, Harry", "Yer a wizard, Harry");
+	test_strjoin("", "Expecto Patronum", "Expecto Patronum");
+	test_strjoin("The ones that love us ", "never really leave us", "The ones that love us never really leave us");
+	test_strjoin(NULL, "Expecto Patronum", NULL); // NULL first string
+	test_strjoin("Expecto Patronum", NULL, NULL); // NULL second string
 
 	// Test for ft_trim
-	print_title("Testing ft_trim");
-	test_trim("  I am what I am, an Albus Dumbledore  ", " ", "I am what I am, an Albus Dumbledore");
-	test_trim("###It does not do to dwell on dreams###", "#", "It does not do to dwell on dreams");
-	test_trim("Happiness can be found", " ", "Happiness can be found");
-	test_trim("...It is our choices that show what we truly are, far more than our abilities...", ".", "It is our choices that show what we truly are, far more than our abilities");
-	test_trim("***Turn to page 394***", "*", "Turn to page 394");
-	test_trim(NULL, " ", NULL); // NULL string
-	test_trim("Hogwarts", NULL, NULL); // NULL set of characters
+	print_title("Testing ft_strtrim");
+	test_strtrim("  I am what I am, an Albus Dumbledore  ", " ", "I am what I am, an Albus Dumbledore");
+	test_strtrim("###It does not do to dwell on dreams###", "#", "It does not do to dwell on dreams");
+	test_strtrim("Happiness can be found", " ", "Happiness can be found");
+	test_strtrim("...It is our choices that show what we truly are, far more than our abilities...", ".", "It is our choices that show what we truly are, far more than our abilities");
+	test_strtrim("***Turn to page 394***", "*", "Turn to page 394");
+	test_strtrim(NULL, " ", NULL); // NULL string
+	test_strtrim("Hogwarts", NULL, NULL); // NULL set of characters
 
 	// Test for ft_split
 	print_title("Testing ft_split");
@@ -75,9 +85,6 @@ int	test_2(void)
 
 	// Test for ft_strmapi
 	print_title("Testing ft_strmapi");
-	char strmapi_func(unsigned int i, char c) {
-		return (c + i);
-	}
 	test_strmapi("Potter", strmapi_func, "Pqvwtf");
 	test_strmapi("Hogwarts", strmapi_func, "Hplzxcvu");
 	test_strmapi("Dobby", strmapi_func, "Dqfga");
@@ -88,9 +95,6 @@ int	test_2(void)
 
 	// Test for ft_striteri
 	print_title("Testing ft_striteri");
-	void striteri_func(unsigned int i, char *c) {
-		*c = *c + i;
-	}
 	char striteri_test1[] = "Lumos";
 	test_striteri(striteri_test1, striteri_func, "Lvnqt");
 	char striteri_test2[] = "Nox";
