@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 22:32:08 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 21:38:55 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:59:57 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,10 @@ void	test_putstr_fd(char *str)
 	}
 	ft_putstr_fd(str, fd);
 	close(fd);
-	buffer = read_test_txt(strlen(str), 0);
+	if(!str)
+		buffer = NULL;
+	else
+		buffer = read_test_txt(strlen(str), 0);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
 	printf("Function PUTSTR_FD('%s')\n", str);
 	printf("\t-> EXPECTED: %s\n", str);
@@ -215,11 +218,14 @@ void	test_putendl_fd(char *str)
 	}
 	ft_putendl_fd(str, fd);
 	close(fd);
-	buffer = read_test_txt(strlen(str), 1);
+	if(!str)
+		buffer = NULL;
+	else
+		buffer = read_test_txt(strlen(str), 0);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
 	printf("Function PUTENDL_FD('%s')\n", str);
 	printf("\t-> EXPECTED: %s\n", str);
-	printf("\t-> RESULT:   %s", buffer);
+	printf("\t-> RESULT:   %s\n", buffer);
 	printf("\033[0m");
 	free(buffer);
 }

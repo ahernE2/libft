@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 22:14:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 20:52:35 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:57:55 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	test_2(void)
 	test_putstr_fd("It does not do to dwell on dreams");
 	test_putstr_fd("Turn to page 394");
 	test_putstr_fd("Expecto Patronum");
-	//test_putstr_fd(NULL); // NULL string
+	test_putstr_fd(NULL); // NULL string
 
 	// Test for ft_putendl_fd
 	print_title("Testing ft_putendl_fd");
@@ -129,7 +129,7 @@ void	test_2(void)
 	test_putendl_fd("I solemnly swear that I am up to no good");
 	test_putendl_fd("After all this time? Always.");
 	test_putendl_fd("Yer a wizard, Harry");
-	//test_putendl_fd(NULL); // NULL string
+	test_putendl_fd(NULL); // NULL string
 
 	// Test for ft_putnbr_fd
 	print_title("Testing ft_putnbr_fd");
