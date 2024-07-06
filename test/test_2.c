@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 22:14:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 02:12:04 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 04:17:41 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	test_2(void)
 	char *expected5[] = {"Turn", "o page 394", NULL};
 	test_split("Turn to page 394", 't', expected5);
 	test_split(NULL, ' ', NULL); // NULL string
-	test_split("Just one test case", ' ', NULL); // NULL expected array
 
 	// Test for ft_itoa
 	print_title("Testing ft_itoa");
