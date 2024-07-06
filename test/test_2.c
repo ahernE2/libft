@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 22:14:55 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/05 22:48:15 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 02:12:04 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	test_2(void)
 	test_substr("It does not do to dwell on dreams", 12, 2, "do");
 	test_substr("Happiness can be found", 0, 9, "Happiness");
 	test_substr("I solemnly swear that I am up to no good", 2, 7, "solemnly");
-	test_substr("After all this time? Always.", 12, 6, "time?");
-	test_substr("Working hard is important. But there is something that matters even more: believing in yourself.", 15, 8, "important");
+	test_substr("After all this time? Always.", 12, 6, "is tim");
+	test_substr("Working hard is important. But there is something that matters even more: believing in yourself.", 15, 8, " importa");
 	test_substr(NULL, 0, 5, NULL); // NULL string
 
 	// Test for ft_join
@@ -43,8 +43,8 @@ void	test_2(void)
 	test_strjoin("Yer a ", "wizard, Harry", "Yer a wizard, Harry");
 	test_strjoin("", "Expecto Patronum", "Expecto Patronum");
 	test_strjoin("The ones that love us ", "never really leave us", "The ones that love us never really leave us");
-	test_strjoin(NULL, "Expecto Patronum", NULL); // NULL first string
-	test_strjoin("Expecto Patronum", NULL, NULL); // NULL second string
+	test_strjoin(NULL, "Expecto Patronum", "Expecto Patronum"); // NULL first string
+	test_strjoin("Expecto Patronum", NULL, "Expecto Patronum"); // NULL second string
 
 	// Test for ft_trim
 	print_title("Testing ft_strtrim");
@@ -62,12 +62,12 @@ void	test_2(void)
 	test_split("Yer a wizard, Harry", ' ', expected1);
 	char *expected2[] = {"I", "solemnly", "swear", "that", "I", "am", "up", "to", "no", "good", NULL};
 	test_split("I solemnly swear that I am up to no good", ' ', expected2);
-	char *expected3[] = {"After", "all", "this", "time?", "Always.", NULL};
-	test_split("After all this time? Always.", ' ', expected3);
-	char *expected4[] = {"I", "am", "what", "I", "am,", "an", "Albus", "Dumbledore", NULL};
-	test_split("I am what I am, an Albus Dumbledore", ' ', expected4);
-	char *expected5[] = {"Turn", "to", "page", "394", NULL};
-	test_split("Turn to page 394", ' ', expected5);
+	char *expected3[] = {"After all this time", " Always.", NULL};
+	test_split("After all this time? Always.", '?', expected3);
+	char *expected4[] = {"I am what I am", " an Albus Dumbledore", NULL};
+	test_split("I am what I am, an Albus Dumbledore", ',', expected4);
+	char *expected5[] = {"Turn", "o page 394", NULL};
+	test_split("Turn to page 394", 't', expected5);
 	test_split(NULL, ' ', NULL); // NULL string
 	test_split("Just one test case", ' ', NULL); // NULL expected array
 
