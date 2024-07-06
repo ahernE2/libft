@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 22:32:08 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 04:16:34 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:55:43 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	test_putchar_fd(char c)
 	}
 	read(fd, &buffer, 1);
 	close(fd);
-	printf("%s", get_color_test((void *)&c, (void *)&buffer, sizeof(int)));
+	printf("%s", get_color_test(&c, &buffer, sizeof(char)));
 	printf("Function PUTCHAR_FD('%c')\n", c);
 	printf("\t-> EXPECTED: %c\n", c);
 	printf("\t-> RESULT:   %c\n", buffer);
@@ -179,7 +179,13 @@ void	test_putstr_fd(char *str)
 		printf("No se pudo abrir el archivo para lectura\n");
 		return ;
 	}
-	bytes_read = read(fd, &buffer, strlen(str));
+	buffer = malloc((strlen(str) + 1) * sizeof(char));
+	if (!buffer)
+	{
+		printf("%s\n", "No couldn't malloc the buffer");
+		return ;
+	}
+	bytes_read = read(fd, buffer, strlen(str));
 	buffer[bytes_read] = '\0';
 	close(fd);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
@@ -187,6 +193,7 @@ void	test_putstr_fd(char *str)
 	printf("\t-> EXPECTED: %s\n", str);
 	printf("\t-> RESULT:   %s\n", buffer);
 	printf("\033[0m");
+	free(buffer);
 }
 
 void	test_putendl_fd(char *str)
@@ -209,14 +216,21 @@ void	test_putendl_fd(char *str)
 		printf("No se pudo abrir el archivo para lectura\n");
 		return ;
 	}
-	bytes_read = read(fd, &buffer, strlen(str));
+	buffer = malloc((strlen(str) + 2) * sizeof(char));
+	if (!buffer)
+	{
+		printf("%s\n", "No couldn't malloc the buffer");
+		return ;
+	}
+	bytes_read = read(fd, buffer, strlen(str) + 1);
 	buffer[bytes_read] = '\0';
 	close(fd);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
 	printf("Function PUTENDL_FD('%s')\n", str);
-	printf("\t-> EXPECTED: %s\n\n", str);
-	printf("\t-> RESULT:   %s\n", buffer);
+	printf("\t-> EXPECTED: %s\n", str);
+	printf("\t-> RESULT:   %s", buffer);
 	printf("\033[0m");
+	free(buffer);
 }
 
 void	test_putnbr_fd(int nb)
@@ -240,9 +254,13 @@ void	test_putnbr_fd(int nb)
 		printf("No se pudo abrir el archivo para lectura\n");
 		return ;
 	}
-	bytes_read = 0;
-	while (read(fd, &buffer, 1) == 1)
-		bytes_read++;
+	buffer = malloc(100 * sizeof(char));
+	if (!buffer)
+	{
+		printf("%s\n", "No couldn't malloc the buffer");
+		return ;
+	}
+	bytes_read = read(fd, buffer, 100);
 	buffer[bytes_read] = '\0';
 	close(fd);
 	result = atoi(buffer);
