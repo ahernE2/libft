@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:16:01 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/24 19:16:48 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:42:32 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char *s, char (*f)(unsigned int, char))
 	char			*mapi;
 	unsigned int	index;
 
+	if (!s || !f)
+		return (NULL);
 	len_s = ft_strlen(s);
 	mapi = (char *)ft_calloc(len_s + 1, sizeof(char));
 	if (!mapi)
