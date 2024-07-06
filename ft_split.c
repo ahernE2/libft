@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:41:57 by alejhern          #+#    #+#             */
-/*   Updated: 2024/06/30 18:25:58 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 03:36:44 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,28 +63,28 @@ static void	ft_checkmem(char **splited, size_t index_split)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	len_split;
 	char	**splited;
 	size_t	index_split;
 
-	len_split = ft_counter(s, c);
-	splited = (char **)ft_calloc((len_split + 1), sizeof(char *));
-	if (!splited || !len_split)
-		return (splited);
+	if (!s)
+		return (NULL);
+	splited = (char **)ft_calloc((ft_counter(s, c) + 1), sizeof(char *));
+	if (!splited)
+		return (NULL);
 	index_split = 0;
-	while (*s && splited)
+	while (*s)
 	{
-		while (*s == c)
+		if (*s != c)
+		{
+			splited[index_split] = ft_addsubsplit(s, c);
+			ft_checkmem(splited, index_split++);
+			while (*s && *s != c)
+				s++;
+		}
+		else
 			s++;
-		if (!s)
-			break ;
-		splited[index_split] = ft_addsubsplit(s, c);
-		ft_checkmem(splited, index_split);
-		while (*s && *s != c)
-			s++;
-		index_split++;
 	}
-	if (!splited[index_split - 1][0])
+	if (index_split > 0 && !splited[index_split - 1][0])
 		splited[index_split - 1] = NULL;
 	return (splited);
 }
