@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 22:32:08 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 21:59:57 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 22:03:39 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ static char	*read_test_txt(size_t len, size_t aux)
 	fd = open("../test.txt", O_RDONLY);
 	if (fd == -1)
 	{
-		printf("No se pudo abrir el archivo para lectura\n");
+		printf("Can't open file\n");
 		return (NULL);
 	}
 	buffer = malloc((len + aux + 1) * sizeof(char));
@@ -164,7 +164,7 @@ void	test_putchar_fd(char c)
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 	{
-		printf("No se pudo abrir el archivo\n");
+		printf("Can't open file\n");
 		return ;
 	}
 	ft_putchar_fd(c, fd);
@@ -188,7 +188,7 @@ void	test_putstr_fd(char *str)
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 	{
-		printf("No se pudo abrir el archivo\n");
+		printf("Can't open file\n");
 		return ;
 	}
 	ft_putstr_fd(str, fd);
@@ -213,7 +213,7 @@ void	test_putendl_fd(char *str)
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 	{
-		printf("No se pudo abrir el archivo\n");
+		printf("Can't open file\n");
 		return ;
 	}
 	ft_putendl_fd(str, fd);
@@ -239,7 +239,7 @@ void	test_putnbr_fd(int nb)
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 	{
-		printf("No se pudo abrir el archivo\n");
+		printf("Can't open file\n");
 		return ;
 	}
 	ft_putnbr_fd(nb, fd);
