@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 22:32:08 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 02:13:14 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 04:16:34 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,21 @@ void	test_strtrim(char const *s1, char const *set, char *exp)
 
 void	test_split(char const *s, char c, char **exp)
 {
-	char **result;
-	unsigned int index;
+	char			**result;
+	unsigned int	index;
 
 	result = ft_split(s, c);
 	index = 0;
+	if (!result && !exp)
+	{
+		printf("%s", get_color_test(exp, result, sizeof(char *)));
+		printf("Function SPLIT('%s', '%c')\n", s, c);
+		printf("\t-> EXPECTED: (null)\n");
+		printf("\t-> RESULT:   (null)\n");
+		printf("\033[0m");
+		printf("\n");
+		return ;
+	}
 	while (result[index])
 	{
 		printf("%s", get_color_test(exp[index], result[index], sizeof(char)));
@@ -86,7 +96,7 @@ void	test_split(char const *s, char c, char **exp)
 
 void	test_itoa(int n, char *exp)
 {
-	char *result;
+	char	*result;
 
 	result = ft_itoa(n);
 	printf("%s", get_color_test(exp, result, sizeof(char)));
