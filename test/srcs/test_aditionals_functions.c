@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 22:32:08 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/06 20:55:43 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:38:55 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,35 @@ void	test_striteri(char *s, void (*f)(unsigned int, char *), char *exp)
 	printf("\033[0m");
 }
 
+static char	*read_test_txt(size_t len, size_t aux)
+{
+	int		fd;
+	char	*buffer;
+	size_t	bytes_read;
+
+	fd = open("../test.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("No se pudo abrir el archivo para lectura\n");
+		return (NULL);
+	}
+	buffer = malloc((len + aux + 1) * sizeof(char));
+	if (!buffer)
+	{
+		printf("%s\n", "No couldn't malloc the buffer");
+		return (NULL);
+	}
+	bytes_read = read(fd, buffer, len + aux + 1);
+	buffer[bytes_read] = '\0';
+	close(fd);
+	return (buffer);
+ }
+
 void	test_putchar_fd(char c)
 {
 	int		fd;
-	char	buffer;
+	char	*buffer;
+	char	ch[2];
 
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
@@ -144,25 +169,20 @@ void	test_putchar_fd(char c)
 	}
 	ft_putchar_fd(c, fd);
 	close(fd);
-	fd = open("../test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("No se pudo abrir el archivo para lectura\n");
-		return ;
-	}
-	read(fd, &buffer, 1);
-	close(fd);
-	printf("%s", get_color_test(&c, &buffer, sizeof(char)));
+	ch[0] = c;
+	ch[1] = '\0';
+	buffer = read_test_txt(strlen(ch), 0);
+	printf("%s", get_color_test(ch, buffer, sizeof(char)));
 	printf("Function PUTCHAR_FD('%c')\n", c);
-	printf("\t-> EXPECTED: %c\n", c);
-	printf("\t-> RESULT:   %c\n", buffer);
+	printf("\t-> EXPECTED: %s\n", ch);
+	printf("\t-> RESULT:   %s\n", buffer);
 	printf("\033[0m");
+	free(buffer);
 }
 
 void	test_putstr_fd(char *str)
 {
 	int		fd;
-	size_t	bytes_read;
 	char	*buffer;
 
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
@@ -173,21 +193,7 @@ void	test_putstr_fd(char *str)
 	}
 	ft_putstr_fd(str, fd);
 	close(fd);
-	fd = open("../test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("No se pudo abrir el archivo para lectura\n");
-		return ;
-	}
-	buffer = malloc((strlen(str) + 1) * sizeof(char));
-	if (!buffer)
-	{
-		printf("%s\n", "No couldn't malloc the buffer");
-		return ;
-	}
-	bytes_read = read(fd, buffer, strlen(str));
-	buffer[bytes_read] = '\0';
-	close(fd);
+	buffer = read_test_txt(strlen(str), 0);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
 	printf("Function PUTSTR_FD('%s')\n", str);
 	printf("\t-> EXPECTED: %s\n", str);
@@ -199,7 +205,6 @@ void	test_putstr_fd(char *str)
 void	test_putendl_fd(char *str)
 {
 	int		fd;
-	size_t	bytes_read;
 	char	*buffer;
 
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
@@ -210,21 +215,7 @@ void	test_putendl_fd(char *str)
 	}
 	ft_putendl_fd(str, fd);
 	close(fd);
-	fd = open("../test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("No se pudo abrir el archivo para lectura\n");
-		return ;
-	}
-	buffer = malloc((strlen(str) + 2) * sizeof(char));
-	if (!buffer)
-	{
-		printf("%s\n", "No couldn't malloc the buffer");
-		return ;
-	}
-	bytes_read = read(fd, buffer, strlen(str) + 1);
-	buffer[bytes_read] = '\0';
-	close(fd);
+	buffer = read_test_txt(strlen(str), 1);
 	printf("%s", get_color_test(str, buffer, sizeof(char)));
 	printf("Function PUTENDL_FD('%s')\n", str);
 	printf("\t-> EXPECTED: %s\n", str);
@@ -237,7 +228,6 @@ void	test_putnbr_fd(int nb)
 {
 	int		fd;
 	char	*buffer;
-	size_t	bytes_read;
 	int		result;
 
 	fd = open("../test.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
@@ -248,21 +238,7 @@ void	test_putnbr_fd(int nb)
 	}
 	ft_putnbr_fd(nb, fd);
 	close(fd);
-	fd = open("../test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("No se pudo abrir el archivo para lectura\n");
-		return ;
-	}
-	buffer = malloc(100 * sizeof(char));
-	if (!buffer)
-	{
-		printf("%s\n", "No couldn't malloc the buffer");
-		return ;
-	}
-	bytes_read = read(fd, buffer, 100);
-	buffer[bytes_read] = '\0';
-	close(fd);
+	buffer = read_test_txt(99, 1);
 	result = atoi(buffer);
 	printf("%s", get_color_test((void *)&nb, (void *)&result, sizeof(int)));
 	printf("Function PUTNBR_FD(%d)\n", nb);
