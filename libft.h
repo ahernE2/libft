@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 02:21:20 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/02 02:21:24 by alejhern         ###   ########.fr       */
+/*   Created: 2024/07/07 19:46:34 by alejhern          #+#    #+#             */
+/*   Updated: 2024/07/07 19:46:47 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_strchr(const char *str, int c);
 // Declarations from ft_lstmap_bonus.c
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // Declarations from ft_strmapi.c
-char	*ft_strmapi(char *s, char (*f)(unsigned int, char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 // Declarations from ft_isdigit.c
 int		ft_isdigit(int c);
 // Declarations from ft_strtrim.c
