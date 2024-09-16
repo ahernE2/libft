@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:46:34 by alejhern          #+#    #+#             */
-/*   Updated: 2024/07/07 19:46:47 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:51:55 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_strlen(const char *str);
 // Declarations from ft_lstdelone_bonus.c
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 // Declarations from ft_putchar_fd.c
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 // Declarations from ft_lstnew_bonus.c
 t_list	*ft_lstnew(void *content);
 // Declarations from ft_strjoin.c
@@ -54,11 +54,13 @@ void	*ft_calloc(size_t nmemb, size_t size);
 // Declarations from ft_isalpha.c
 int		ft_isalpha(int c);
 // Declarations from ft_putstr_fd.c
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 // Declarations from ft_isprint.c
 int		ft_isprint(int c);
 // Declarations from ft_itoa.c
 char	*ft_itoa(int nb);
+// Declarations from ft_itoa_base.c
+char	*ft_itoa_base(unsigned long long nb, int base);
 // Declarations from ft_atoi.c
 int		ft_atoi(const char *str);
 // Declarations from ft_tolower.c
@@ -76,7 +78,7 @@ int		ft_toupper(int c);
 // Declarations from ft_lstadd_front_bonus.c
 void	ft_lstadd_front(t_list **lst, t_list *new);
 // Declarations from ft_putnbr_fd.c
-void	ft_putnbr_fd(int nbr, int fd);
+int		ft_putnbr_fd(int nbr, int fd);
 // Declarations from ft_lstsize_bonus.c
 size_t	ft_lstsize(t_list *lst);
 // Declarations from ft_memcmp.c
@@ -104,7 +106,7 @@ int		ft_isalnum(int c);
 // Declarations from ft_memcpy.c
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 // Declarations from ft_putendl_fd.c
-void	ft_putendl_fd(char *s, int fd);
+int		ft_putendl_fd(char *s, int fd);
 // Declarations from ft_lstlast_bonus.c
 t_list	*ft_lstlast(t_list *lst);
 // Declarations from ft_split.c
