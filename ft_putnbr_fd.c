@@ -16,6 +16,8 @@ int	ft_putnbr_fd(int nbr, int fd)
 {
 	char	*nb;
 
+	if (nbr == INT_MIN)
+		return (ft_putstr_fd("-2147483648", fd));
 	nb = ft_itoa(nbr);
 	if (!nb)
 		return (-1);

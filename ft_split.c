@@ -12,79 +12,62 @@
 
 #include "libft.h"
 
-static size_t	ft_counter(char const *s, char c)
+static int	ft_count(char const *s, char c)
 {
-	size_t	count;
-	int		in_substring;
+	int	counter;
 
-	count = 0;
-	in_substring = 0;
+	if (!s)
+		return (0);
+	counter = 0;
 	while (*s)
 	{
-		if (*s != c && !in_substring)
+		if (*s != c)
+			counter++;
+		while (*s && *s != c)
 		{
-			in_substring = 1;
-			count++;
+			s++;
+			if (*s == '\0')
+				return (counter);
 		}
-		else if (*s == c)
-			in_substring = 0;
 		s++;
 	}
-	return (count);
+	return (counter);
 }
 
-static char	*ft_addsubsplit(char const *s, char c)
+static void	ft_free(char **farray, int failed)
 {
-	char	*start;
-	size_t	len;
-	char	*subsplit;
-
-	start = (char *)s;
-	while (*s && *s != c)
-		s++;
-	len = (size_t)(s - start);
-	subsplit = (char *)ft_calloc(len + 1, sizeof(char));
-	if (!subsplit)
-		return (NULL);
-	ft_strlcpy(subsplit, start, len + 1);
-	return (subsplit);
-}
-
-static void	ft_checkmem(char **splited, size_t index_split)
-{
-	if (!splited[index_split])
+	while (failed > 0)
 	{
-		while (index_split > 0)
-			free(splited[--index_split]);
-		free(splited);
-		splited = NULL;
+		free(farray[failed - 1]);
+		failed--;
 	}
+	free(farray);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**splited;
-	size_t	index_split;
+	char	**array;
+	int		num_words;
+	int		start;
+	int		word_len;
 
-	if (!s)
+	array = (char **)ft_calloc(ft_count(s, c) + 1, sizeof(char *));
+	if (!array)
 		return (NULL);
-	splited = (char **)ft_calloc((ft_counter(s, c) + 1), sizeof(char *));
-	if (!splited)
-		return (NULL);
-	index_split = 0;
-	while (*s)
+	num_words = 0;
+	start = 0;
+	while (num_words < ft_count(s, c))
 	{
-		if (*s != c)
-		{
-			splited[index_split] = ft_addsubsplit(s, c);
-			ft_checkmem(splited, index_split++);
-			while (*s && *s != c)
-				s++;
-		}
-		else
-			s++;
+		while (s[start] && s[start] == c)
+			start++;
+		word_len = 0;
+		while (s[start + word_len] && s[start + word_len] != c)
+			word_len++;
+		array[num_words] = ft_substr(s, start, word_len);
+		if (!array[num_words++])
+			return (ft_free(array, num_words), NULL);
+		start += word_len;
 	}
-	if (index_split > 0 && !splited[index_split - 1][0])
-		splited[index_split - 1] = NULL;
-	return (splited);
+	array[num_words] = NULL;
+	return (array);
 }

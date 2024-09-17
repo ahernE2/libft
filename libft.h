@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stddef.h>
 # include <stdint.h>
+# include <limits.h>
 
 typedef struct s_list
 {
