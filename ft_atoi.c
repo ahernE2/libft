@@ -16,23 +16,21 @@ int	ft_atoi(const char *str)
 {
 	int		result;
 	int		sign;
-	size_t	index;
 
 	result = 0;
 	sign = 1;
-	index = 0;
-	while (str[index] == ' ' || (str[index] >= '\t' && str[index] <= '\r'))
-		index++;
-	if (str[index] == '-' || str[index] == '+')
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[index] == '-')
+		if (*str == '-')
 			sign *= -1;
-		index++;
+		str++;
 	}
-	while (str[index] >= '0' && str[index] <= '9')
+	while (ft_isdigit(*str))
 	{
-		result = result * 10 + str[index] - '0';
-		index++;
+		result = result * 10 + *str - '0';
+		str++;
 	}
 	return (sign * result);
 }
