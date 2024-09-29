@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static void	ft_prepare_nb(int nb, t_flags flags, int base, int *len)
 {
