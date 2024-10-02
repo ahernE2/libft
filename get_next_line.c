@@ -6,11 +6,11 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 20:21:14 by alejhern          #+#    #+#             */
-/*   Updated: 2024/10/02 02:12:22 by amhernandez      ###   ########.fr       */
+/*   Updated: 2024/10/02 02:23:14 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char	*ft_bufferjoin(char *s1, char *s2, int put_nl)
 {
